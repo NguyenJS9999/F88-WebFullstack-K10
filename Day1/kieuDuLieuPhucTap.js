@@ -1,0 +1,20 @@
+const myInfor = {
+	fullname: "Nguyễn Minh Hoàng",
+	username: "hoangnm",
+	age: 32,
+	address: "Hoai Duc, HN",
+	major: "Information technology",
+	gender: "male",
+	students: [
+		"Huy - 92 -quán nhậu",
+		"Duy - chủ tịch du học",
+		"Giang - nghiện tài xỉu",
+		"An - lớp trưởng",
+		"Tuấn - YD, BG",
+		"Hân-2003-HN",
+		"Hiếu-Ninh Bình",
+		"Trọng",
+		"Dũng-Thái Bình-Bằng giỏi BK",
+		"Mạnh - 2k3 - Quảng Ninh",
+	],
+};

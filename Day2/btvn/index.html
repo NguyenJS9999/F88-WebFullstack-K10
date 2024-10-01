@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			let a = 7;
+			let b = 5;
+			let c = 3;
+			if (a > b) {
+				let sort = a;
+				a = b;
+				b = sort;
+				console.log(a, b, c, sort);
+			}
+			if (a > c) {
+				let sort = a;
+				a = c;
+				c = sort;
+				console.log(a, b, c, sort);
+			}
+			if (b > c) {
+				let sort = b;
+				b = c;
+				c = sort;
+				console.log(a, b, c, sort);
+			}
+
+			console.log("Thứ tự tăng dần của 3 số là:", a, b, c);
+
+			// https://visualgo.net/en/sorting
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+Mảng và các kiến thức về mảng:
+
+- Khai báo mảng -Done
+  - Khai báo với literal []
+  - Khai báo vời từ khoá `new` (một số lưu ý khi khi báo với `new`).
+  - Kiểm tra kiểu dữ liệu của mảng.
+- Truy xuất phần tử mảng. -Done
+- Thêm phần tử vào mảng (không dùng phương thức). -Done
+- Độ dài mảng. -Done
+- Xoá phần tử trong mảng với delete. -Done
+- Nối mảng. -Done
+- Copy mảng
+  - spread
+  - Slice với tham số chuyền vào là 0. -Done
+  - Concat với mảng thêm vào là rỗng. -Done
+- Duyệt qua mảng.
+  - for -Done
+  - For…in -Done
+  - For…of -Done
+    - Bài tập nhỏ: Tìm số lớn nhất, nhỏ nhất trong mảng. -Done
+- Chuyển đổi giữa mảng và chuỗi -Done
+  - Bài tập nhỏ: Viết hàm xử lý tên capitalizeName -Done
+- Nhóm các phương thức thêm hoặc xoá phần tử
+  - pop() -Done
+  - push() -Done
+    - Bài tập nhỏ: Đảo ngược mảng
+  - shift() -Done
+  - unshift() -Done
+  - concat() -Done
