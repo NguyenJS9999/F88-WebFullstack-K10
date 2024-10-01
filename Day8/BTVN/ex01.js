@@ -1,7 +1,7 @@
-/**  ## Bài 1: Viết hàm tính số ngày bạn đã sống
+/**
+## Bài 1: Viết hàm tính số ngày bạn đã sống
 Viết hàm `calculateAge` nhận vào một tham số `birthday` là một chuỗi ngày tháng năm sinh dạng `dd/mm/yyyy` và trả về số ngày bạn đã sống.
-## Bài 3: Viết hàm đếm ngược thời gian
-## Bài 4: Viết hàm đếm số ngày đến tết dương lịch
+
 */
 
 // Bài 1:
@@ -40,16 +40,12 @@ function calculateAge(parameter_birthday) {
 	// Chuyển mili giây sang ngày
 	const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
 
-	return `Bạn đã sống được ${diffInDays} ngày.`;
+	return `Bài 1: Bạn đã sống được ${diffInDays} ngày.`;
 }
 
 console.log(calculateAge(brithdayInput));
 
-// Bài 3:
-function countDown(parameter_countDown) {
-	console.log('Bài 3 countDown: ', parameter_countDown);
-}
-countDown('22/02/1996');
+
 
 // Bài 4:
 function countDownToNewYear(parameter_countDownToNewYear) {
