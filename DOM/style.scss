@@ -1,0 +1,11 @@
+* {
+	box-sizing: content-box;
+}
+
+div {
+	background-color: orange;
+}
+
+div > p:nth-child(odd) {
+	background-color: blue;
+}
