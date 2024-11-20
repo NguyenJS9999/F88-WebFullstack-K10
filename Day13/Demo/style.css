@@ -1,0 +1,10 @@
+.form-register {
+	border: 1px solid gray;
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+	width: 40%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
