@@ -1,18 +1,34 @@
-import Footer from "./components/footer/Footer";
-import Header from "./components/Header";
+import { Routes, Route } from 'react-router-dom';
+import './App.scss';
 
-/**
- *
- ** Bài 1: Tạo 1 nút bấm toogle product list để ẩn hiện danh sách sản phẩm.
- ** Bài 2: Tạo nút bấm "See more" ở cuối danh sách sản phẩm, mỗi lần ấn sẽ hiển thị thêm 10 sản phẩm.
- ** Bài 3: Trong component Header tạo nút bấm "handleChangeTheme" để chuyển đổi giữa DarkMode và LightMode
- */
+import Header from './components/Header';
+import Footer from './components/footer/Footer';
+import NotFoundPage from './pages/NotFoundPage';
+import HomePage from './pages/HomePage';
+import ShopPage from './pages/ShopPage';
+import ContactPage from './pages/ContactPage';
+import ServicePage from './pages/ServicePage';
+import ProductDetailPage from './pages/ProductDetailPage';
 
 function App() {
 	return (
 		<>
 			<Header />
-			<h1>Hello</h1>
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/product/:id" element={<ProductDetailPage />} />
+				<Route path="/shop" element={<ShopPage />} />
+				<Route path="/service" element={<ServicePage />} />
+				<Route path="/contact" element={<ContactPage />} />
+				<Route path="/admin" element={<DashBroadPage />}>
+					<Route
+						path="/product"
+						element={<ProductDetailPage />}
+					/>
+				</Route>
+
+				<Route path="*" element={<NotFoundPage />} />
+			</Routes>
 			<Footer />
 		</>
 	);
