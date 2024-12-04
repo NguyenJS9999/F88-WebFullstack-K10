@@ -1,61 +1,58 @@
-import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { create } from "../../axios";
-import { updateById } from "../../axios/index";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+
+import { createNew, getById, updateById } from "../../axios";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { schemaProduct } from "../../schemas/productShemas";
 
 const ProductForm = () => {
 	const { id } = useParams();
-	console.log("id: ", id);
-	const nav = useNavigate();
-	const initValue = {
-		title: "",
-		price: 0,
+	const {
+		register,
+		watch,
+		formState: { errors },
+		handleSubmit,
+		reset,
+	} = useForm({
+		resolver: zodResolver(schemaProduct),
+	});
+
+	// useEffect(async () => {
+	// 	console.log("hello");
+	// }, []);
+
+	// Không khai báo async function cho callback trong useEffect.
+
+	useEffect(() => {
+		id &&
+			(async () => {
+				const data = await getById("/products", id);
+				reset(data);
+			})();
+	}, [id]);
+
+	const handleAddProduct = async (product) => {
+		console.log(product);
+		// request add product
+		if (id) {
+			// logic edit
+			const data = await updateById("/products", id, product);
+			console.log(data);
+		} else {
+			// logic add
+			const data = await createNew("/products", product);
+			console.log(data);
+		}
+		reset();
 	};
-	const [product, setProduct] = useState(initValue);
 
-	// Cập nhật state
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setProduct((prev) => ({ ...prev, [name]: value }));
-	};
+	// console.log(watch(errors));
 
-	// Gửi dữ liệu đi
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		(async () => {
-			// try {
-			// 	const res = await fetch("http://localhost:3000/products", {
-			// 		method: "POST",
-			// 		headers: {
-			// 			"Content-Type": "application/json",
-			// 		},
-			// 		body: JSON.stringify(product),
-			// 	});
-			// 	const data = await res.json();
-			// 	console.log(data);
-			// 	// Thong bao them thanh cong.
-			// 	confirm("Them thanh cong, ban muon quay lai danh sach san pham khong?") && nav("/admin/products");
-			// 	// Cap nhat lai danh sach san pham neu nguoi dung quay lai danh sach san pham
-			// 	// Neu nguoi dung o lai ProductForm, sau khi submit thi phai reset form.
-			// } catch (error) {
-			// 	console.log(error);
-			// }
-
-			if (id) {
-				// logic update
-				const data = await updateById("/products", id, product);
-			} else {
-				// logic add
-				const data = await create("/products", product);
-			}
-
-			// logic chung
-		})();
-	};
 	return (
 		<div>
 			<h1>{id ? "Cập nhật" : "Thêm mới"} sản phẩm</h1>
-			<form action="">
+			<form onSubmit={handleSubmit(handleAddProduct)}>
 				<div className="form-group">
 					<label htmlFor="title" className="form-label">
 						Title
@@ -66,9 +63,9 @@ const ProductForm = () => {
 						name="title"
 						id="price"
 						placeholder="Title"
-						defaultValue={product.title}
-						onChange={handleChange}
+						{...register("title", { required: true })}
 					/>
+					{errors.title && <p className="text-danger">{errors.title?.message}</p>}
 				</div>
 
 				<div className="form-group">
@@ -81,13 +78,29 @@ const ProductForm = () => {
 						name="price"
 						id="price"
 						placeholder="Price"
-						defaultValue={product.price}
-						onChange={handleChange}
+						{...register("price", { required: true, valueAsNumber: true })}
+					/>
+					{errors.price && <p className="text-danger">{errors.price?.message}</p>}
+				</div>
+
+				<div className="form-group">
+					<label htmlFor="description" className="form-label">
+						Description
+					</label>
+					<textarea
+						className="form-control"
+						name="description"
+						id="description"
+						placeholder="Description"
+						{...register("description", { required: true })}
 					/>
 				</div>
 
 				<div className="form-group">
-					<button className="btn btn btn-primary w-100" onClick={handleSubmit}>
+					<button className="btn btn-secondary" onClick={() => reset()}>
+						Nhập lại
+					</button>{" "}
+					<button className="btn btn btn-primary" onClick={handleSubmit}>
 						{id ? "Cập nhật" : "Thêm mới"}
 					</button>
 				</div>

@@ -35,7 +35,22 @@ export const removeById = async (path, id) => {
 	}
 };
 
-export const create = async (path, data) => {};
-export const updateById = async (path, id, data) => {};
+export const createNew = async (path, dataBody) => {
+	try {
+		const { data } = await instance.post(`${path}`, dataBody);
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const updateById = async (path, id, dataBody) => {
+	try {
+		const { data } = await instance.patch(`${path}/${id}`, dataBody);
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
 
 export default instance;

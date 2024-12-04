@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import instance, { getAll, removeById } from "./axios";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
@@ -15,24 +15,8 @@ import ProductTable from "./pages/admin/ProductTable";
 const App = () => {
 	const [products, setProducts] = useState([]);
 
-	// const getAll = async function () {
-	// 	try {
-	// 		// Cach 1: Dung fetch
-	// 		// const res = await fetch("http://localhost:3000/products");
-	// 		// const data = await res.json();
-
-	// 		// Cach 2: Dung axios
-	// 		// const { data } = await axios.get("http://localhost:3000/products");
-
-	// 		// Cach 3: Dung axios voi instance
-	// 		const { data } = await instance.get(`/products`);
-	// 		console.log(data);
-	// 		setProducts(data);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
-
+	const location = useLocation();
+	// console.log("location: ", location);
 	useEffect(() => {
 		(async () => {
 			const data = await getAll("/products");
@@ -40,19 +24,16 @@ const App = () => {
 		})();
 	}, []);
 
-	const handleRemoveProduct = (id) => {
-		//logic Delete
-
-		confirm("Are you sure?") &&
-			(async () => {
-				const res = await removeById("/products", id);
-				if (res.status === 200) {
-					const newProducts = products.filter((item) => item.id !== id);
-					setProducts(newProducts);
-				} else {
-					console.log("Error!");
-				}
-			})();
+	const handleRemoveProduct = async (id) => {
+		if (confirm("Are you sure?")) {
+			const res = await removeById("/products", id);
+			if (res.status === 200) {
+				const newProducts = products.filter((item) => item.id !== id);
+				setProducts(newProducts);
+			} else {
+				console.log("Error!");
+			}
+		}
 	};
 	return (
 		<div>

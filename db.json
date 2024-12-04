@@ -5,7 +5,7 @@
       "title": "Calvin Klein CK One",
       "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
       "category": "fragrances",
-      "price": 49.99,
+      "price": "200",
       "discountPercentage": 0.32,
       "rating": 4.85,
       "stock": 17,
@@ -1515,6 +1515,45 @@
       "title": "them san pham C",
       "price": "100",
       "id": 34
+    },
+    {
+      "title": "ten san pham",
+      "price": "200",
+      "id": 35
+    },
+    {
+      "title": "ten san pham moi",
+      "price": "300",
+      "id": 36
+    },
+    {
+      "title": "them san pham moi AAA",
+      "price": "200",
+      "id": 37
+    },
+    {
+      "title": "them sp",
+      "price": "200",
+      "id": 38
+    },
+    {
+      "title": "them sp BBB",
+      "price": "200",
+      "id": 39
+    },
+    {
+      "title": "ten san pham AA",
+      "price": 1000,
+      "description": "",
+      "id": 40
+    }
+  ],
+  "users": [
+    {
+      "email": "hoang@gmail.com",
+      "password": "$2a$10$91vNpDBFMVly9FKl9rWsZuQXu6M3Hgsof14zAtD8X2tE22TSr3qnq",
+      "username": "hoangf8",
+      "id": 1
     }
   ]
 }
