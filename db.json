@@ -1550,10 +1550,17 @@
   ],
   "users": [
     {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$da/5T0bwrJYU1ihJJVjrt.pMZIZC.idOss7UJOURq/azC5.0glOZq",
+      "confirmPassword": "111111",
+      "id": 1,
+      "role": "admin"
+    },
+    {
       "email": "hoang@gmail.com",
-      "password": "$2a$10$91vNpDBFMVly9FKl9rWsZuQXu6M3Hgsof14zAtD8X2tE22TSr3qnq",
-      "username": "hoangf8",
-      "id": 1
+      "password": "$2a$10$Yb2iWO0y9aqw3CrwhWIuUehLJl5ItIDlOt3CTi5/4qi6KsXOYZRwe",
+      "confirmPassword": "111111",
+      "id": 2
     }
   ]
 }

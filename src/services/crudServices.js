@@ -1,12 +1,4 @@
-import axios from "axios";
-
-const instance = axios.create({
-	// baseURL: "http://localhost:3000",
-	baseURL: "https://hoangnm-json.onrender.com",
-	headers: {
-		"Content-Type": "application/json",
-	},
-});
+import instance from ".";
 
 export const getAll = async (path) => {
 	try {
@@ -52,5 +44,3 @@ export const updateById = async (path, id, dataBody) => {
 		console.log(error);
 	}
 };
-
-export default instance;

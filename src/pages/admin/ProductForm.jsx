@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-
-import { createNew, getById, updateById } from "../../axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schemaProduct } from "../../schemas/productShemas";
+import { createNew, getById, updateById } from "../../services/crudServices";
 
 const ProductForm = () => {
 	const { id } = useParams();
