@@ -1,23 +1,12 @@
-import React from 'react';
-import ProductTable from './pages/ProductTable';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { decrement, increment } from './actions/countActions';
+import React from "react";
+import ProductTable from "./pages/admin/ProductTable";
 
 const App = () => {
-	// const count = useSelector(state => state.count);
-	// const dispatch = useDispatch();
-	return <ProductTable/>;
+	return (
+		<>
+			<ProductTable />
+		</>
+	);
 };
 
 export default App;
-
-/**
- 	<h1>Count: {count}</h1>
-			<button className="btn btn-primary" onClick={() => increment()}>
-				Increment
-			</button>
-
-			<button className="btn btn-primary" onClick={() =>decrement()}>
-				Decrement
-			</button>
- * */
