@@ -1,7 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchProducts, createProduct, editProduct, removeProduct } from "./productActions";
+import { IProduct } from "../../interfaces/IProduct";
 
-const initialState = {
+type State = {
+	products: IProduct[];
+	loading: boolean;
+	error?: string | null;
+};
+
+const initialState: State = {
 	products: [],
 	loading: false,
 	error: null,
