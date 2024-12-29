@@ -1,28 +1,22 @@
 {
-  "name": "f8-k10",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^9.17.0",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.16",
-    "globals": "^15.14.0",
-    "vite": "^6.0.5"
-  }
+	"name": "f8-k10",
+	"version": "1.0.0",
+	"description": "learn nodejs + expressjs",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon index.js"
+	},
+	"keywords": [
+		"f8",
+		"nodejs",
+		"expressjs",
+		"hoc-lap-trinh"
+	],
+	"author": "hoangnm-ndm",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.21.2",
+		"nodemon": "^3.1.9"
+	}
 }
