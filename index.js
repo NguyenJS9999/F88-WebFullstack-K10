@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import routes from "./src/routes/index.js";
 
 const app = express();
 const PORT = 8888;
@@ -15,45 +16,17 @@ mongoose
 		console.error(`Connect failed: ${error}`);
 	});
 
-app.get("/products", async (req, res) => {
-	try {
-		// await MyModel.find({});
-	} catch (error) {
-		console.log(error);
-	}
-});
+// app.get("/products", async (req, res) => {});
 
-app.get("/products/:id", async (req, res) => {
-	try {
-		// Model.findById()
-	} catch (error) {
-		console.log(error);
-	}
-});
+// app.get("/products/:id", async (req, res) => {});
 
-app.delete("/products/:id", async (req, res) => {
-	try {
-		// Model.findByIdAndDelete()
-	} catch (error) {
-		console.log(error);
-	}
-});
+// app.delete("/products/:id", async (req, res) => {});
 
-app.post("/products", async (req, res) => {
-	try {
-		// Model.create(req.body)
-	} catch (error) {
-		console.log(error);
-	}
-});
+// app.post("/products", async (req, res) => {});
 
-app.patch("/products/:id", async (req, res) => {
-	try {
-		// Model.findByIdAndUpdate(id, dataUpdate, optional)
-	} catch (error) {
-		console.log(error);
-	}
-});
+// app.patch("/products/:id", async (req, res) => {});
+
+app.use("/", routes);
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port: ${PORT}`);
