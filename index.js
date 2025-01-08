@@ -1,30 +1,16 @@
 import express from "express";
-import mongoose from "mongoose";
 import routes from "./src/routes/index.js";
+import connectDB from "./src/config/db.js";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const { PORT } = process.env;
 
 const app = express();
-const PORT = 8888;
-
 app.use(express.json());
 
-mongoose
-	.connect("mongodb://127.0.0.1:27017/f8-k10")
-	.then(() => {
-		console.log("Connect database successfully!");
-	})
-	.catch((error) => {
-		console.error(`Connect failed: ${error}`);
-	});
-
-// app.get("/products", async (req, res) => {});
-
-// app.get("/products/:id", async (req, res) => {});
-
-// app.delete("/products/:id", async (req, res) => {});
-
-// app.post("/products", async (req, res) => {});
-
-// app.patch("/products/:id", async (req, res) => {});
+connectDB();
 
 app.use("/", routes);
 
