@@ -13,7 +13,7 @@
 		"expressjs",
 		"hoc-lap-trinh"
 	],
-	"author": "hoangnm-ndm",
+	"author": "nguyennt-ntn",
 	"license": "MIT",
 	"dependencies": {
 		"bcrypt": "^5.1.1",
